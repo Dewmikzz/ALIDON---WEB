@@ -37,22 +37,26 @@ export const coreValues = [
   {
     id: "01",
     title: "INTEGRITY",
-    description: "Act with honesty, accountability and sound judgement."
+    description: "Act with honesty, accountability and sound judgement.",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: "02",
     title: "TEAMWORK",
-    description: "Collaborate openly and achieve more together."
+    description: "Collaborate openly and achieve more together.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: "03",
     title: "RESPECT",
-    description: "Treat people fairly, professionally and with consideration."
+    description: "Treat people fairly, professionally and with consideration.",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: "04",
     title: "GOOD CITIZENSHIP",
-    description: "Contribute responsibly to society and the communities we serve."
+    description: "Contribute responsibly to society and the communities we serve.",
+    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1000&auto=format&fit=crop"
   }
 ];
 

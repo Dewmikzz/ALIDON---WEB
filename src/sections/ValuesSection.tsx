@@ -41,11 +41,17 @@ const ValuesSection: React.FC = () => {
                 )}
               >
                 <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
-                  <div className="text-black/30 text-5xl font-display font-bold">
+                  <div className={cn(
+                    "text-5xl font-display font-bold transition-colors duration-500",
+                    isActive ? "text-white/50" : "text-black/30"
+                  )}>
                     {value.id}
                   </div>
                   
-                  <div className="mt-auto">
+                  <div className={cn(
+                    "mt-auto transition-colors duration-500",
+                    isActive ? "text-white" : "text-black"
+                  )}>
                     <h4 className="text-2xl font-display font-bold mb-4 whitespace-nowrap">
                       {value.title}
                     </h4>
@@ -57,7 +63,7 @@ const ValuesSection: React.FC = () => {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.3 }}
-                          className="text-mid-grey text-base"
+                          className="text-white/80 text-base"
                         >
                           {value.description}
                         </motion.p>
@@ -66,11 +72,14 @@ const ValuesSection: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Abstract texture background for active */}
+                {/* Image background for active */}
                 <div className={cn(
-                  "absolute inset-0 opacity-0 transition-opacity duration-700 bg-gradient-to-tr from-black/5 to-transparent",
+                  "absolute inset-0 opacity-0 transition-opacity duration-700 z-0",
                   isActive && "opacity-100"
-                )}></div>
+                )}>
+                  <img src={(value as any).image} alt={value.title} className="w-full h-full object-cover filter brightness-[0.4] grayscale-[30%]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                </div>
               </motion.div>
             );
           })}
@@ -85,32 +94,49 @@ const ValuesSection: React.FC = () => {
               <div 
                 key={value.id}
                 onClick={() => setActiveIndex(isActive ? -1 : index)}
-                className="bg-white rounded-2xl border border-black/5 p-6 cursor-pointer"
+                className="relative bg-white rounded-2xl border border-black/5 p-6 cursor-pointer overflow-hidden transition-colors duration-500"
               >
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-4">
-                    <span className="text-black/30 font-display font-bold">{value.id}</span>
-                    <h4 className="text-lg font-display font-bold">{value.title}</h4>
-                  </div>
-                  <div className={cn("transform transition-transform duration-300", isActive ? "rotate-45" : "")}>
-                    +
-                  </div>
+                {/* Mobile Image Background */}
+                <div className={cn(
+                  "absolute inset-0 opacity-0 transition-opacity duration-700 z-0",
+                  isActive && "opacity-100"
+                )}>
+                  <img src={(value as any).image} alt={value.title} className="w-full h-full object-cover filter brightness-[0.4] grayscale-[30%]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
-                
-                <AnimatePresence>
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-mid-grey pt-4 text-sm">
-                        {value.description}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+
+                <div className="relative z-10">
+                  <div className={cn(
+                    "flex justify-between items-center transition-colors duration-500",
+                    isActive ? "text-white" : "text-black"
+                  )}>
+                    <div className="flex items-center gap-4">
+                      <span className={cn(
+                        "font-display font-bold transition-colors duration-500",
+                        isActive ? "text-white/50" : "text-black/30"
+                      )}>{value.id}</span>
+                      <h4 className="text-lg font-display font-bold">{value.title}</h4>
+                    </div>
+                    <div className={cn("transform transition-transform duration-300", isActive ? "rotate-45" : "")}>
+                      +
+                    </div>
+                  </div>
+                  
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-white/80 pt-4 text-sm">
+                          {value.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             );
           })}
