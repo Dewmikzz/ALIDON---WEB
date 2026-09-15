@@ -1,0 +1,97 @@
+export const companyData = {
+  name: "IMR DEVELOPMENT SDN. BHD.",
+  registrationNo: "201301041462 (1071286-P)",
+  incorporated: "22 November 2013",
+  location: "Kuala Lumpur, Malaysia",
+  state: "Wilayah Persekutuan",
+  structure: "Wholly-owned subsidiary of AF Multi Group Berhad",
+  address: [
+    "M1-15, Blok M, Plaza Damas",
+    "Jalan Sri Hartamas 1",
+    "50480 Kuala Lumpur",
+    "Wilayah Persekutuan"
+  ],
+  description: "IMR Development Sdn. Bhd. is a Kuala Lumpur-based Bumiputera company incorporated in 2013 and a wholly-owned subsidiary of AF Multi Group Berhad. The company is involved in property development and related project activities, with a business scope covering construction installation, engineering projects, and industrial machinery, equipment and supplies."
+};
+
+export const businessAreas = [
+  {
+    id: "01",
+    title: "CONSTRUCTION INSTALLATION",
+    description: "Other construction installation activities not elsewhere classified."
+  },
+  {
+    id: "02",
+    title: "ENGINEERING PROJECTS",
+    description: "Construction of other engineering projects not elsewhere classified."
+  }
+];
+
+export const corporateDirection = {
+  vision: "To provide transparent, dedicated and consistent service to society.",
+  mission: "To strive for superior performance in every undertaking and maintain high standards of service excellence.",
+  commitment: "To apply disciplined planning, consistent delivery, quality practices and responsible environment, health and safety considerations."
+};
+
+export const coreValues = [
+  {
+    id: "01",
+    title: "INTEGRITY",
+    description: "Act with honesty, accountability and sound judgement."
+  },
+  {
+    id: "02",
+    title: "TEAMWORK",
+    description: "Collaborate openly and achieve more together."
+  },
+  {
+    id: "03",
+    title: "RESPECT",
+    description: "Treat people fairly, professionally and with consideration."
+  },
+  {
+    id: "04",
+    title: "GOOD CITIZENSHIP",
+    description: "Contribute responsibly to society and the communities we serve."
+  }
+];
+
+export const developmentApproach = [
+  {
+    id: "01",
+    title: "THOUGHTFUL PLANNING",
+    description: "A considered approach to bringing places and people together."
+  },
+  {
+    id: "02",
+    title: "PEOPLE-CENTRED SPACES",
+    description: "Places designed around the needs of individuals and families."
+  },
+  {
+    id: "03",
+    title: "COMMUNITY VALUE",
+    description: "Environments that support connection, growth and shared experience."
+  }
+];
+
+export const leadership = {
+  management: [
+    {
+      name: "Dato' Sri Mohmad B. Salleh",
+      role: "CHAIRMAN"
+    },
+    {
+      name: "Haji Awang Mustapha",
+      role: "PROJECT & DEVELOPMENT DIRECTOR"
+    }
+  ],
+  committee: [
+    "YBhg. Tan Sri Ahmad Phesal Talib",
+    "Tan Sri Amin Mohd Amin Nordin",
+    "Abdul Aziz",
+    "Dato' Ir Mohamad Razali Othman",
+    "Dato' Dr. Hasan Mohd Ali",
+    "Mohammad Saibani",
+    "Mohammad Osman"
+  ]
+};
