@@ -38,7 +38,7 @@ export const coreValues = [
     id: "01",
     title: "INTEGRITY",
     description: "Act with honesty, accountability and sound judgement.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop"
+    image: "/wisma-pahlawan.jpg"
   },
   {
     id: "02",

@@ -38,7 +38,7 @@ const DevelopmentApproach: React.FC = () => {
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                   />
                   <motion.img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop"
+                    src="/pahalwan-championship.jpeg"
                     alt="IMR Development Approach"
                     className="w-full h-full object-cover"
                     initial={{ scale: 1.1 }}

@@ -54,22 +54,15 @@ const HeroSection: React.FC = () => {
         className="absolute inset-0 z-0 overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
-        {/* Cinematic Timelapse Pan Effect */}
-        <motion.img 
-          animate={{ 
-            scale: [1.05, 1.15, 1.05],
-            x: ["0%", "-3%", "0%"],
-            y: ["0%", "2%", "0%"]
-          }}
-          transition={{ 
-            duration: 120, 
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          src="https://images.unsplash.com/photo-1691320939828-7606bceea485?q=80&w=2560&auto=format&fit=crop" 
-          alt="Kuala Lumpur skyline featuring Merdeka 118 and Twin Towers" 
-          className="w-full h-full object-cover origin-center"
-        />
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className="w-full h-full object-cover"
+        >
+          <source src="/bg-video.mp4" type="video/mp4" />
+        </video>
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10 pt-20">
@@ -88,7 +81,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-[12vw] md:text-[8rem] lg:text-[10rem] leading-[0.85] font-display font-bold text-white tracking-tighter"
         >
-          PLACES<br/>FOR LIFE.
+          My Home<br/>My Paradise
         </motion.h1>
 
         <div className="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
