@@ -33,15 +33,15 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-40 bg-deep-navy text-white overflow-hidden">
+    <section id="contact" className="relative py-24 md:py-40 bg-black text-white overflow-hidden">
       {/* Background Image Placeholder */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" 
           alt="Contact background" 
-          className="w-full h-full object-cover opacity-20 filter grayscale-[50%]"
+          className="w-full h-full object-cover opacity-20 filter grayscale"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-deep-navy/95 to-deep-navy/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 to-black/80"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
@@ -68,7 +68,7 @@ const ContactSection: React.FC = () => {
               className="mt-16 md:mt-24"
             >
               <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-6">Headquarters</h3>
-              <address className="not-italic text-lg md:text-xl font-display font-medium leading-relaxed">
+              <address className="not-italic text-lg md:text-xl font-display font-medium leading-relaxed mb-10">
                 {companyData.name}<br />
                 {companyData.address.map((line, i) => (
                   <React.Fragment key={i}>
@@ -76,6 +76,11 @@ const ContactSection: React.FC = () => {
                   </React.Fragment>
                 ))}
               </address>
+              
+              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 mb-6">Email</h3>
+              <a href="mailto:i@imrdsb.com.my" className="text-lg md:text-xl font-display font-medium leading-relaxed hover:text-warm-yellow transition-colors block">
+                i@imrdsb.com.my
+              </a>
             </motion.div>
           </div>
 

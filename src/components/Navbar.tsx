@@ -40,15 +40,18 @@ const Navbar: React.FC = () => {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
+          'fixed top-0 left-0 right-0 z-40 transition-all duration-500 pointer-events-none',
           isScrolled 
-            ? 'py-4 bg-white/80 backdrop-blur-md border-b border-gray-100/50 shadow-sm' 
+            ? 'pt-8 pb-4 md:py-4 md:bg-white/80 md:backdrop-blur-md md:border-b md:border-gray-100/50 md:shadow-sm' 
             : 'py-6 bg-transparent'
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center pointer-events-auto">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 z-50 group">
+          <a href="/" className={cn(
+            "items-center gap-3 z-50 group transition-all duration-300",
+            (isScrolled && !isMobileMenuOpen) ? "hidden md:flex opacity-0 md:opacity-100" : "flex"
+          )}>
             <img 
               src="/hero-logo.png" 
               alt="IMR Logo" 
@@ -111,14 +114,17 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden z-50 p-2 -mr-2"
+            className={cn(
+              "md:hidden z-50 ml-auto rounded-full transition-all duration-300 flex items-center justify-center",
+              (isScrolled && !isMobileMenuOpen) ? "p-3 bg-white shadow-lg border border-gray-100 mt-1" : "p-2 -mr-2"
+            )}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className={cn("w-6 h-6 transition-colors", isScrolled ? "text-black" : "text-white")} />
+              <Menu className={cn("w-6 h-6 transition-colors", (isScrolled && !isMobileMenuOpen) ? "text-black" : "text-white")} />
             )}
           </button>
         </div>

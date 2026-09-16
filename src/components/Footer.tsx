@@ -3,7 +3,7 @@ import { companyData } from '../data/content';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden">
+    <footer className="bg-white text-black pt-24 pb-8 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-24">
           <div className="col-span-1 md:col-span-2">
@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             </h2>
             <a 
               href="#contact" 
-              className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+              className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full text-sm font-medium hover:bg-black/80 transition-colors"
             >
               Get in Touch
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-6">Navigation</h3>
+            <h3 className="text-black/50 text-xs font-semibold tracking-widest uppercase mb-6">Navigation</h3>
             <ul className="space-y-4">
               <li><a href="#company" className="hover:text-warm-yellow transition-colors">Company</a></li>
               <li><a href="#business" className="hover:text-warm-yellow transition-colors">Business</a></li>
@@ -32,9 +32,9 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="text-white/50 text-xs font-semibold tracking-widest uppercase mb-6">Company Information</h3>
-            <div className="space-y-2 text-sm text-white/80">
-              <p className="font-semibold text-white">{companyData.name}</p>
+            <h3 className="text-black/50 text-xs font-semibold tracking-widest uppercase mb-6">Company Information</h3>
+            <div className="space-y-2 text-sm text-black/80">
+              <p className="font-semibold text-black">{companyData.name}</p>
               <p>Reg: {companyData.registrationNo}</p>
               <p>{companyData.location}</p>
             </div>
@@ -42,20 +42,21 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Massive Logo at Bottom */}
-        <div className="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-end gap-8">
+        <div className="border-t border-black/10 pt-12 flex flex-col md:flex-row justify-between items-end gap-8">
           <div className="w-full">
-            <h1 className="text-[15vw] leading-none font-display font-bold tracking-tighter opacity-10 select-none">
+            <h1 className="text-[15vw] leading-none font-display font-bold tracking-tighter opacity-10 select-none text-black">
               IMR
             </h1>
           </div>
           
           <div className="w-full md:w-auto flex flex-col md:items-end gap-4 shrink-0">
-            <p className="text-xs text-white/50">
-              &copy; {new Date().getFullYear()} IMR Development Sdn. Bhd.
+            <p className="text-xs text-black/50 md:text-right leading-relaxed">
+              All rights reserved &copy; 2026 IMR Development Sdn. Bhd. <br className="hidden md:block" />
+              Developed by <a href="https://pshycolab.com" target="_blank" rel="noopener noreferrer" className="text-black hover:text-warm-yellow transition-colors font-medium">PshycoLab&trade;</a>
             </p>
-            <div className="flex gap-4 text-xs text-white/50">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <div className="flex gap-4 text-xs text-black/50">
+              <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-black transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

@@ -48,17 +48,27 @@ const HeroSection: React.FC = () => {
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black flex items-center">
       {/* Background Image / Video Placeholder */}
       <motion.div 
-        initial={{ scale: 1.05, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.6 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
-        {/* Conceptual Placeholder Image */}
-        <img 
+        {/* Cinematic Timelapse Pan Effect */}
+        <motion.img 
+          animate={{ 
+            scale: [1.05, 1.15, 1.05],
+            x: ["0%", "-3%", "0%"],
+            y: ["0%", "2%", "0%"]
+          }}
+          transition={{ 
+            duration: 120, 
+            repeat: Infinity,
+            ease: "linear"
+          }}
           src="https://images.unsplash.com/photo-1691320939828-7606bceea485?q=80&w=2560&auto=format&fit=crop" 
           alt="Kuala Lumpur skyline featuring Merdeka 118 and Twin Towers" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover origin-center"
         />
       </motion.div>
 
@@ -115,22 +125,6 @@ const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating Architectural Annotations */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-12 right-12 hidden lg:flex flex-col gap-3 z-10"
-      >
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl max-w-[200px]">
-          <p className="text-white text-[10px] font-semibold tracking-wider mb-1">01</p>
-          <p className="text-white/80 text-xs">THOUGHTFUL PLANNING</p>
-        </div>
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl max-w-[200px] ml-12">
-          <p className="text-white text-[10px] font-semibold tracking-wider mb-1">02</p>
-          <p className="text-white/80 text-xs">PEOPLE-CENTRED SPACES</p>
-        </div>
-      </motion.div>
     </section>
   );
 };
