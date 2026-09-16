@@ -50,7 +50,7 @@ export const coreValues = [
     id: "03",
     title: "RESPECT",
     description: "Treat people fairly, professionally and with consideration.",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1000&auto=format&fit=crop"
   },
   {
     id: "04",
