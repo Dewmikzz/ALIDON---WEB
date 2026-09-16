@@ -36,23 +36,23 @@ const ValuesSection: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                  "relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 bg-white border border-black/5",
+                  "relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border border-black/10",
                   isActive ? "flex-[3]" : "flex-[1]"
                 )}
               >
                 <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
                   <div className={cn(
                     "text-5xl font-display font-bold transition-colors duration-500",
-                    isActive ? "text-white/50" : "text-black/30"
+                    isActive ? "text-white/50" : "text-white/20"
                   )}>
                     {value.id}
                   </div>
                   
-                  <div className={cn(
-                    "mt-auto transition-colors duration-500",
-                    isActive ? "text-white" : "text-black"
-                  )}>
-                    <h4 className="text-2xl font-display font-bold mb-4 whitespace-nowrap">
+                  <div className="mt-auto text-white">
+                    <h4 className={cn(
+                      "font-display font-bold mb-4 whitespace-nowrap transition-all duration-500 origin-left",
+                      isActive ? "text-2xl opacity-100" : "text-xl opacity-60"
+                    )}>
                       {value.title}
                     </h4>
                     
@@ -72,13 +72,17 @@ const ValuesSection: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Image background for active */}
-                <div className={cn(
-                  "absolute inset-0 opacity-0 transition-opacity duration-700 z-0",
-                  isActive && "opacity-100"
-                )}>
-                  <img src={(value as any).image} alt={value.title} className="w-full h-full object-cover filter brightness-[0.4] grayscale-[30%]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                {/* Image background */}
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={(value as any).image} 
+                    alt={value.title} 
+                    className={cn(
+                      "w-full h-full object-cover transition-all duration-700",
+                      isActive ? "filter brightness-[0.5] grayscale-[20%]" : "filter brightness-[0.2] grayscale-[80%]"
+                    )} 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 </div>
               </motion.div>
             );
@@ -94,28 +98,32 @@ const ValuesSection: React.FC = () => {
               <div 
                 key={value.id}
                 onClick={() => setActiveIndex(isActive ? -1 : index)}
-                className="relative bg-white rounded-2xl border border-black/5 p-6 cursor-pointer overflow-hidden transition-colors duration-500"
+                className="relative rounded-2xl border border-black/10 p-6 cursor-pointer overflow-hidden transition-all duration-500"
               >
                 {/* Mobile Image Background */}
-                <div className={cn(
-                  "absolute inset-0 opacity-0 transition-opacity duration-700 z-0",
-                  isActive && "opacity-100"
-                )}>
-                  <img src={(value as any).image} alt={value.title} className="w-full h-full object-cover filter brightness-[0.4] grayscale-[30%]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={(value as any).image} 
+                    alt={value.title} 
+                    className={cn(
+                      "w-full h-full object-cover transition-all duration-700",
+                      isActive ? "filter brightness-[0.5] grayscale-[20%]" : "filter brightness-[0.3] grayscale-[80%]"
+                    )} 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                 </div>
 
-                <div className="relative z-10">
-                  <div className={cn(
-                    "flex justify-between items-center transition-colors duration-500",
-                    isActive ? "text-white" : "text-black"
-                  )}>
+                <div className="relative z-10 text-white">
+                  <div className="flex justify-between items-center">
                     <div className="flex items-center gap-4">
                       <span className={cn(
                         "font-display font-bold transition-colors duration-500",
-                        isActive ? "text-white/50" : "text-black/30"
+                        isActive ? "text-white/50" : "text-white/30"
                       )}>{value.id}</span>
-                      <h4 className="text-lg font-display font-bold">{value.title}</h4>
+                      <h4 className={cn(
+                        "font-display font-bold transition-all duration-500",
+                        isActive ? "text-lg opacity-100" : "text-base opacity-70"
+                      )}>{value.title}</h4>
                     </div>
                     <div className={cn("transform transition-transform duration-300", isActive ? "rotate-45" : "")}>
                       +
