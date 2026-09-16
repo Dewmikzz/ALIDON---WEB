@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  // Setup motion values for mouse coordinates
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  // Setup spring physics for a smooth, "smart" trailing effect
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
     // Check if it's a touch device
@@ -12,13 +21,13 @@ const CustomCursor: React.FC = () => {
       return;
     }
 
-    const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    const moveCursor = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Elements that should trigger the expanded cursor
       if (
         target.tagName.toLowerCase() === 'button' ||
         target.tagName.toLowerCase() === 'a' ||
@@ -32,11 +41,11 @@ const CustomCursor: React.FC = () => {
       }
     };
 
-    window.addEventListener('mousemove', updatePosition);
+    window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
-      window.removeEventListener('mousemove', updatePosition);
+      window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
@@ -44,14 +53,22 @@ const CustomCursor: React.FC = () => {
   if (isTouchDevice) return null;
 
   return (
-    <div
-      id="custom-cursor"
-      className={isHovering ? 'hovering' : ''}
+    <motion.div
       style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        x: cursorXSpring,
+        y: cursorYSpring,
+        pointerEvents: 'none',
+        zIndex: 9999
       }}
-    />
+    >
+      <div
+        id="custom-cursor"
+        className={isHovering ? 'hovering' : ''}
+      />
+    </motion.div>
   );
 };
 

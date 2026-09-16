@@ -6,7 +6,6 @@ import CustomCursor from './components/CustomCursor';
 import HeroSection from './sections/HeroSection';
 import IntroSection from './sections/IntroSection';
 import CompanySection from './sections/CompanySection';
-import BusinessSection from './sections/BusinessSection';
 import ValuesSection from './sections/ValuesSection';
 import DevelopmentApproach from './sections/DevelopmentApproach';
 import EditorialStory from './sections/EditorialStory';
@@ -20,7 +19,6 @@ const HomePage = () => {
       <HeroSection />
       <IntroSection />
       <CompanySection />
-      <BusinessSection />
       <ValuesSection />
       <DevelopmentApproach />
       <EditorialStory />

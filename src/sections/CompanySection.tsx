@@ -8,9 +8,10 @@ const CompanySection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16 md:mb-24">
           <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-mid-grey mb-8">Who We Are</h2>
             <h3 className="text-4xl md:text-7xl font-display font-bold leading-[1.05] tracking-tight max-w-4xl uppercase">
@@ -24,8 +25,8 @@ const CompanySection: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-2xl"
           >
             <img 
@@ -38,10 +39,10 @@ const CompanySection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="border-t border-black/10 pt-6"
           >
             <p className="text-xs font-semibold text-mid-grey uppercase tracking-wider mb-2">Incorporated</p>
@@ -49,10 +50,10 @@ const CompanySection: React.FC = () => {
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="border-t border-black/10 pt-6"
           >
             <p className="text-xs font-semibold text-mid-grey uppercase tracking-wider mb-2">Location</p>
@@ -60,10 +61,10 @@ const CompanySection: React.FC = () => {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
             className="border-t border-black/10 pt-6 lg:col-span-2"
           >
             <p className="text-xs font-semibold text-mid-grey uppercase tracking-wider mb-2">Wholly-Owned Subsidiary</p>
@@ -72,10 +73,10 @@ const CompanySection: React.FC = () => {
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
           className="mt-16 max-w-3xl"
         >
           <p className="text-lg md:text-xl text-black/80 leading-relaxed font-body">

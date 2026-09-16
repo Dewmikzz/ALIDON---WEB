@@ -56,8 +56,8 @@ const HeroSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
         {/* Conceptual Placeholder Image */}
         <img 
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-          alt="Modern architecture" 
+          src="https://images.unsplash.com/photo-1691320939828-7606bceea485?q=80&w=2560&auto=format&fit=crop" 
+          alt="Kuala Lumpur skyline featuring Merdeka 118 and Twin Towers" 
           className="w-full h-full object-cover"
         />
       </motion.div>

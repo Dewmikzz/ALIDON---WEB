@@ -63,18 +63,28 @@ export const coreValues = [
 export const developmentApproach = [
   {
     id: "01",
-    title: "THOUGHTFUL PLANNING",
+    title: "Thoughtful planning",
     description: "A considered approach to bringing places and people together."
   },
   {
     id: "02",
-    title: "PEOPLE-CENTRED SPACES",
+    title: "People-centred spaces",
     description: "Places designed around the needs of individuals and families."
   },
   {
     id: "03",
-    title: "COMMUNITY VALUE",
+    title: "Community value",
     description: "Environments that support connection, growth and shared experience."
+  },
+  {
+    id: "04",
+    title: "Commitment to EHS & Quality",
+    description: "Adhering strictly to environmental, health, safety, and quality standards."
+  },
+  {
+    id: "05",
+    title: "Institutional Governance",
+    description: "Upholding robust corporate governance, transparency, and accountability."
   }
 ];
 

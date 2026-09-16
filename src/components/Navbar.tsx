@@ -48,27 +48,46 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
           {/* Logo */}
-          <a href="/" className="flex flex-col leading-none z-50">
-            <span className={cn("font-display font-bold tracking-tight transition-colors duration-300", isMobileMenuOpen ? "text-white" : "text-black text-xl")}>
-              IMR
-            </span>
-            <span className={cn("text-[0.65rem] font-medium tracking-[0.2em] transition-colors duration-300", isMobileMenuOpen ? "text-white/80" : "text-gray-500")}>
-              DEVELOPMENT
-            </span>
+          <a href="/" className="flex items-center gap-3 z-50 group">
+            <img 
+              src="/hero-logo.png" 
+              alt="IMR Logo" 
+              className={cn(
+                "h-8 md:h-10 w-auto object-contain transition-all duration-300",
+                (!isScrolled || isMobileMenuOpen) ? "brightness-0 invert opacity-90" : ""
+              )}
+            />
+            <div className="flex flex-col leading-none">
+              <span className={cn("font-display font-bold tracking-tight transition-colors duration-300 text-xl", isMobileMenuOpen ? "text-white" : (isScrolled ? "text-black" : "text-white"))}>
+                IMR
+              </span>
+              <span className={cn("text-[0.65rem] font-medium tracking-[0.2em] transition-colors duration-300", isMobileMenuOpen ? "text-white/80" : (isScrolled ? "text-gray-500" : "text-white/70"))}>
+                DEVELOPMENT
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center bg-black/5 backdrop-blur-sm rounded-full px-6 py-2 border border-black/5">
+          <nav className={cn(
+            "hidden md:flex items-center backdrop-blur-sm rounded-full px-6 py-2 border transition-colors duration-500",
+            isScrolled ? "bg-black/5 border-black/5" : "bg-white/10 border-white/20"
+          )}>
             <ul className="flex items-center space-x-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-sm font-medium text-black/70 hover:text-black transition-colors relative group"
+                    className={cn(
+                      "text-sm font-medium transition-colors relative group",
+                      isScrolled ? "text-black/70 hover:text-black" : "text-white/80 hover:text-white"
+                    )}
                   >
                     {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                    <span className={cn(
+                      "absolute -bottom-1 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full",
+                      isScrolled ? "bg-black" : "bg-white"
+                    )}></span>
                   </a>
                 </li>
               ))}
@@ -80,7 +99,10 @@ const Navbar: React.FC = () => {
             <a 
               href="#contact" 
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="bg-black text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-black/80 transition-colors flex items-center gap-2"
+              className={cn(
+                "px-6 py-2.5 rounded-full text-sm font-medium transition-colors flex items-center gap-2",
+                isScrolled ? "bg-black text-white hover:bg-black/80" : "bg-white text-black hover:bg-white/90"
+              )}
             >
               Get in Touch
               <span className="w-1.5 h-1.5 rounded-full bg-warm-yellow"></span>
@@ -96,7 +118,7 @@ const Navbar: React.FC = () => {
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-white" />
             ) : (
-              <Menu className="w-6 h-6 text-black" />
+              <Menu className={cn("w-6 h-6 transition-colors", isScrolled ? "text-black" : "text-white")} />
             )}
           </button>
         </div>

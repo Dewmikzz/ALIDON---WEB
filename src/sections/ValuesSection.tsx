@@ -10,9 +10,10 @@ const ValuesSection: React.FC = () => {
     <section className="py-24 md:py-32 px-6 lg:px-12 bg-off-white text-black">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 md:mb-24"
         >
           <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-mid-grey mb-4">How We Work</h2>
@@ -31,10 +32,10 @@ const ValuesSection: React.FC = () => {
                 key={value.id}
                 onMouseEnter={() => setActiveIndex(index)}
                 layout
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: index * 0.1 }}
                 className={cn(
                   "relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border border-black/10",
                   isActive ? "flex-[3]" : "flex-[1]"
