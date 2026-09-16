@@ -6,11 +6,12 @@ const HeroSection: React.FC = () => {
     "Creating places that support people, families and communities.",
     "We are a trusted Bumiputera property developer."
   ];
-  
+
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isVideoEnded, setIsVideoEnded] = useState(false);
 
   useEffect(() => {
     // Initial delay to match previous animation timing
@@ -35,7 +36,7 @@ const HeroSection: React.FC = () => {
 
     const timer = setTimeout(() => {
       setDisplayText(
-        isDeleting 
+        isDeleting
           ? currentText.substring(0, displayText.length - 1)
           : currentText.substring(0, displayText.length + 1)
       );
@@ -46,71 +47,85 @@ const HeroSection: React.FC = () => {
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black flex items-center">
-      {/* Background Image / Video Placeholder */}
-      <motion.div 
+      {/* Background Video */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 z-0 overflow-hidden"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 z-10"></div>
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
+        <video
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => setIsVideoEnded(true)}
           className="w-full h-full object-cover"
         >
           <source src="/bg-video.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 w-full relative z-10 pt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-6"
-        >
-          <p className="text-white/80 text-xs font-semibold tracking-[0.2em] uppercase">IMR Development Sdn. Bhd.</p>
-        </motion.div>
+      {/* Reveal Image at end of video with split animation */}
+      <motion.div
+        initial={{ clipPath: "inset(0 50% 0 50%)" }}
+        animate={isVideoEnded ? { clipPath: "inset(0 0% 0 0%)" } : { clipPath: "inset(0 50% 0 50%)" }}
+        transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+        className="absolute inset-0 z-0 overflow-hidden"
+      >
+        <img src="/wisma-pahlawan.jpg" alt="Wisma Pahlawan" className="w-full h-full object-cover" />
+      </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[12vw] md:text-[8rem] lg:text-[10rem] leading-[0.85] font-display font-bold text-white tracking-tighter"
-        >
-          My Home<br/>My Paradise
-        </motion.h1>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80 z-10 pointer-events-none"></div>
 
-        <div className="mt-8 md:mt-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-          <motion.p 
-            className="text-white/80 max-w-sm text-sm md:text-base leading-relaxed min-h-[48px]"
+      <div className="relative z-20 h-full flex flex-col justify-center px-6 lg:px-12 w-full max-w-7xl mx-auto pt-20">
+        <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-6"
           >
-            {displayText}
-            <motion.span 
-              animate={{ opacity: [1, 0] }} 
-              transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-              className="inline-block w-[2px] h-[1em] bg-white/80 ml-[2px] align-middle"
-            />
-          </motion.p>
-          
-          <motion.div 
+            <p className="text-white/80 text-sm md:text-base font-semibold tracking-[0.2em] uppercase">IMR Development Sdn. Bhd.</p>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[12vw] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-display font-bold text-white tracking-tighter"
+          >
+            My Home<br />My Paradise.
+          </motion.h1>
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.4 }}
-            className="flex gap-4"
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-6 md:mt-8 text-white/90 max-w-2xl text-lg md:text-xl lg:text-2xl leading-relaxed min-h-[64px] md:min-h-[80px] font-light"
           >
-            <a 
-              href="#approach" 
-              className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium hover:bg-white/90 transition-colors"
+            {displayText}
+            <motion.span
+              animate={{ opacity: [1, 0] }}
+              transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+              className="inline-block w-[3px] h-[1em] bg-white ml-[4px] align-middle"
+            />
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="#approach"
+              className="bg-white text-black px-8 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-white/90 hover:scale-105 transition-all shadow-lg"
             >
               Explore IMR
             </a>
-            <a 
-              href="#company" 
-              className="border border-white/30 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-white/10 transition-colors backdrop-blur-sm"
+            <a
+              href="#company"
+              className="border border-white/30 text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide hover:bg-white/10 hover:border-white transition-all backdrop-blur-sm"
             >
               Our Approach
             </a>
