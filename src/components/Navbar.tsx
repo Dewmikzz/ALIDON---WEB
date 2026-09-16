@@ -5,8 +5,6 @@ import { cn } from '../utils/cn';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -19,22 +17,11 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      setIsScrolled(currentScrollY > 50);
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
+      setIsScrolled(window.scrollY > 50);
     };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -56,8 +43,7 @@ const Navbar: React.FC = () => {
           'fixed top-0 left-0 right-0 z-40 transition-all duration-500',
           isScrolled 
             ? 'py-4 bg-white/80 backdrop-blur-md border-b border-gray-100/50 shadow-sm' 
-            : 'py-6 bg-transparent',
-          !isVisible && !isMobileMenuOpen ? '-translate-y-full' : 'translate-y-0'
+            : 'py-6 bg-transparent'
         )}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center">
