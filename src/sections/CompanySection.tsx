@@ -68,7 +68,7 @@ const CompanySection: React.FC = () => {
             className="border-t border-black/10 pt-6 lg:col-span-2"
           >
             <p className="text-xs font-semibold text-mid-grey uppercase tracking-wider mb-2">Wholly-Owned Subsidiary</p>
-            <p className="text-2xl font-display font-medium"> A future worth building</p>
+            <p className="text-2xl font-display font-medium"> AF Multi Group Berhad</p>
           </motion.div>
         </div>
 

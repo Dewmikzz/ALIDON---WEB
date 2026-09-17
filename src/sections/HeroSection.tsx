@@ -1,48 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
-  const texts = [
-    "Take creating places all"
-  ];
-
-  const [textIndex, setTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
   const [isVideoEnded, setIsVideoEnded] = useState(false);
-
-  useEffect(() => {
-    // Initial delay to match previous animation timing
-    if (!hasStarted) {
-      const startTimer = setTimeout(() => {
-        setHasStarted(true);
-      }, 1200);
-      return () => clearTimeout(startTimer);
-    }
-
-    const currentText = texts[textIndex];
-    let typingSpeed = isDeleting ? 40 : 100;
-
-    if (!isDeleting && displayText === currentText) {
-      typingSpeed = 5000; // Pause at end of sentence
-      setIsDeleting(true);
-    } else if (isDeleting && displayText === '') {
-      setIsDeleting(false);
-      setTextIndex((prev) => (prev + 1) % texts.length);
-      typingSpeed = 500; // Pause before new sentence
-    }
-
-    const timer = setTimeout(() => {
-      setDisplayText(
-        isDeleting
-          ? currentText.substring(0, displayText.length - 1)
-          : currentText.substring(0, displayText.length + 1)
-      );
-    }, typingSpeed);
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, textIndex, hasStarted]);
 
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden bg-black flex items-center">
@@ -91,7 +51,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[12vw] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-display font-bold text-white tracking-tighter"
+            className="text-[12vw] md:text-[6rem] lg:text-[8rem] leading-[0.9] font-display font-bold text-transparent bg-clip-text bg-[linear-gradient(to_right,#f87171,#fb923c,#facc15,#4ade80,#60a5fa,#818cf8,#c084fc)] tracking-tighter"
           >
             My Home<br />My Paradise.
           </motion.h1>
@@ -105,19 +65,7 @@ const HeroSection: React.FC = () => {
             "Rumahku syurgaku"
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="mt-6 md:mt-8 text-white/90 max-w-2xl text-lg md:text-xl lg:text-2xl leading-relaxed min-h-[64px] md:min-h-[80px] font-light"
-          >
-            {displayText}
-            <motion.span
-              animate={{ opacity: [1, 0] }}
-              transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-              className="inline-block w-[3px] h-[1em] bg-white ml-[4px] align-middle"
-            />
-          </motion.p>
+
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

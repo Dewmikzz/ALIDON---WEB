@@ -11,7 +11,7 @@ export const companyData = {
     "50480 Kuala Lumpur",
     "Wilayah Persekutuan"
   ],
-  description: "Imr development sdn bhd is strives to set new standards for design, craftsmanship and inspired lifestyle. Whether it be master communities or iconic high-rise towers, IMRDSB is redefining luxury living. As a leading luxury real estate developer, DAMAC believes in developing and nourishing superior residential communities that deliver outstanding return on investment, while offering residents differentiated properties and services."
+  description: "We create urban lifestyle level for hospitality, residence and commercial assets for communities."
 };
 
 export const businessAreas = [

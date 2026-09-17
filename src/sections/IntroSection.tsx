@@ -31,7 +31,7 @@ const IntroSection: React.FC = () => {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl md:text-5xl lg:text-7xl font-display font-medium leading-[1.1] tracking-tight"
             >
-              Trusted Bumiputera property developer delivering lasting value.
+              Trusted Bumiputera property developer.
             </motion.h2>
 
             <motion.p
@@ -41,7 +41,7 @@ const IntroSection: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-12 text-mid-grey max-w-2xl text-lg md:text-xl font-serif italic"
             >
-              Dependable outcomes through disciplined planning, teamwork and accountability.
+              An icon on its own
             </motion.p>
           </div>
         </div>
