@@ -77,7 +77,7 @@ const ValuesSection: React.FC = () => {
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={(value as any).image} 
-                    alt={value.title} 
+                    alt={`${value.title} - IMR Development Core Value`} 
                     className={cn(
                       "w-full h-full object-cover transition-all duration-700",
                       isActive ? "filter brightness-[0.5] grayscale-[20%]" : "filter brightness-[0.2] grayscale-[80%]"
@@ -105,7 +105,7 @@ const ValuesSection: React.FC = () => {
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={(value as any).image} 
-                    alt={value.title} 
+                    alt={`${value.title} - IMR Development Core Value`} 
                     className={cn(
                       "w-full h-full object-cover transition-all duration-700",
                       isActive ? "filter brightness-[0.5] grayscale-[20%]" : "filter brightness-[0.3] grayscale-[80%]"

@@ -11,7 +11,7 @@ export const companyData = {
     "50480 Kuala Lumpur",
     "Wilayah Persekutuan"
   ],
-  description: "IMR Development Sdn. Bhd. is a Kuala Lumpur-based Bumiputera company incorporated in 2013 and a wholly-owned subsidiary of AF Multi Group Berhad. The company is involved in property development and related project activities, with a business scope covering construction installation, engineering projects, and industrial machinery, equipment and supplies."
+  description: "Imr development sdn bhd is strives to set new standards for design, craftsmanship and inspired lifestyle. Whether it be master communities or iconic high-rise towers, IMRDSB is redefining luxury living. As a leading luxury real estate developer, DAMAC believes in developing and nourishing superior residential communities that deliver outstanding return on investment, while offering residents differentiated properties and services."
 };
 
 export const businessAreas = [

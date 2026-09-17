@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
   const texts = [
-    "Creating places that support people, families and communities.",
-    "We are a trusted Bumiputera property developer."
+    "Take creating places all"
   ];
 
   const [textIndex, setTextIndex] = useState(0);
@@ -72,7 +71,7 @@ const HeroSection: React.FC = () => {
         transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
         className="absolute inset-0 z-0 overflow-hidden"
       >
-        <img src="/wisma-pahlawan.jpg" alt="Wisma Pahlawan" className="w-full h-full object-cover" />
+        <img src="/wisma-pahlawan.jpg" alt="Wisma Pahlawan Building Exterior - IMR Development Headquarters" className="w-full h-full object-cover" />
       </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/80 z-10 pointer-events-none"></div>
@@ -96,6 +95,15 @@ const HeroSection: React.FC = () => {
           >
             My Home<br />My Paradise.
           </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="text-3xl md:text-5xl lg:text-6xl font-display italic text-white/90 mt-2 md:mt-4"
+          >
+            "Rumahku syurgaku"
+          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0 }}

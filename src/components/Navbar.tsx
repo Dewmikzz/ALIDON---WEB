@@ -48,16 +48,16 @@ const Navbar: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex justify-between items-center pointer-events-auto">
           {/* Logo */}
-          <a href="/" className={cn(
+          <a href="/" aria-label="IMR Development Home" className={cn(
             "items-center gap-3 z-50 group transition-all duration-300",
             (isScrolled && !isMobileMenuOpen) ? "hidden md:flex opacity-0 md:opacity-100" : "flex"
           )}>
             <img 
               src="/hero-logo.png" 
-              alt="IMR Logo" 
+              alt="IMR Development Sdn. Bhd. Official Corporate Logo" 
               className={cn(
                 "h-8 md:h-10 w-auto object-contain transition-all duration-300",
-                (!isScrolled || isMobileMenuOpen) ? "brightness-0 invert opacity-90" : ""
+                (!isScrolled || isMobileMenuOpen) ? "opacity-90" : ""
               )}
             />
             <div className="flex flex-col leading-none">

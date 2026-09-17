@@ -30,7 +30,7 @@ const HomePage = () => {
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
       <CustomCursor />
       <Navbar />
       <Routes>

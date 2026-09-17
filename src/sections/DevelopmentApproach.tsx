@@ -39,7 +39,7 @@ const DevelopmentApproach: React.FC = () => {
                   />
                   <motion.img
                     src="/pahalwan-championship.jpeg"
-                    alt="IMR Development Approach"
+                    alt="Architectural Blueprint and Planning - IMR Development Approach"
                     className="w-full h-full object-cover"
                     initial={{ scale: 1.1 }}
                     whileInView={{ scale: 1 }}

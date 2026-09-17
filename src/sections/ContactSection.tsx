@@ -38,7 +38,7 @@ const ContactSection: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop" 
-          alt="Contact background" 
+          alt="Kuala Lumpur City Skyline - IMR Development Contact Background" 
           className="w-full h-full object-cover opacity-20 filter grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 to-black/80"></div>
@@ -149,6 +149,7 @@ const ContactSection: React.FC = () => {
 
                 <button 
                   type="submit"
+                  aria-label="Submit contact form"
                   disabled={isSubmitting}
                   className="w-full md:w-auto bg-white text-black px-8 py-4 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[160px]"
                 >
