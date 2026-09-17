@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-6"
           >
-            <p className="text-white/80 text-sm md:text-base font-semibold tracking-[0.2em] uppercase">IMR Development Sdn. Bhd.</p>
+
           </motion.div>
 
           <motion.h1

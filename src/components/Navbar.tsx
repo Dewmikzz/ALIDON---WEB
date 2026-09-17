@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
                 IMR
               </span>
               <span className={cn("text-[0.65rem] font-medium tracking-[0.2em] transition-colors duration-300", isMobileMenuOpen ? "text-white/80" : (isScrolled ? "text-gray-500" : "text-white/70"))}>
-                DEVELOPMENT
+                DEVELOPMENT SDN. BHD.
               </span>
             </div>
           </a>
