@@ -22,7 +22,7 @@ const EditorialStory: React.FC = () => {
             className="h-[2px] bg-black max-w-xs mx-auto my-12"
           />
           <h2 className="text-4xl md:text-6xl lg:text-8xl font-display font-bold tracking-tight leading-[1.1] uppercase text-mid-grey">
-            We create<br />places  for<br /> empty land to future development.
+            We create<br />places from<br /> empty land to future development.
           </h2>
         </motion.div>
       </div>
